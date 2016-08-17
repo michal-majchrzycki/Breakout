@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "90DDB4271D63BC3300D04134"
-               BuildableName = "Breakout.app"
-               BlueprintName = "Breakout"
-               ReferencedContainer = "container:Breakout.xcodeproj">
+               BuildableName = "PrehistoricBreakout.app"
+               BlueprintName = "PrehistoricBreakout"
+               ReferencedContainer = "container:PrehistoricBreakout.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "90DDB4271D63BC3300D04134"
-            BuildableName = "Breakout.app"
-            BlueprintName = "Breakout"
-            ReferencedContainer = "container:Breakout.xcodeproj">
+            BuildableName = "PrehistoricBreakout.app"
+            BlueprintName = "PrehistoricBreakout"
+            ReferencedContainer = "container:PrehistoricBreakout.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "90DDB4271D63BC3300D04134"
-            BuildableName = "Breakout.app"
-            BlueprintName = "Breakout"
-            ReferencedContainer = "container:Breakout.xcodeproj">
+            BuildableName = "PrehistoricBreakout.app"
+            BlueprintName = "PrehistoricBreakout"
+            ReferencedContainer = "container:PrehistoricBreakout.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "90DDB4271D63BC3300D04134"
-            BuildableName = "Breakout.app"
-            BlueprintName = "Breakout"
-            ReferencedContainer = "container:Breakout.xcodeproj">
+            BuildableName = "PrehistoricBreakout.app"
+            BlueprintName = "PrehistoricBreakout"
+            ReferencedContainer = "container:PrehistoricBreakout.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

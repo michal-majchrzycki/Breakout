@@ -1,19 +1,34 @@
-//
-//  ViewController.swift
-//  Breakout
-//
-//  Created by Neían on 16.08.2016.
-//  Copyright © 2016 Michał Majchrzycki. All rights reserved.
-//
-
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIDynamicAnimatorDelegate, UICollisionBehaviorDelegate {
+    
     @IBOutlet weak var startGameButton: UIButton!
+    @IBOutlet weak var gameView: UIView!
+    
+    private lazy var animator: UIDynamicAnimator = {
+        
+        let lazilyCreatedDynamicAnimator = UIDynamicAnimator(referenceView: self.gameView)
+        lazilyCreatedDynamicAnimator.delegate = self
+        
+        #if DEBUG
+            lazilyCreatedDynamicAnimator.debugEnabled = true
+        #endif
+        
+        return lazilyCreatedDynamicAnimator
+        
+    }()
+    
+    struct BoundaryNames {
+        static let gameViewLeftBoundary = "Game View Left Boundary"
+        static let gameViewTopBoundary = "Game View Top Boundary"
+        static let gameViewRightBoundary = "Game View Right Boundary"
+        static let paddleBoundary = "Paddle Boundary"
+        static let brickBoundary = "Brick Boundary"
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.startGameButton.hidden = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,8 +37,21 @@ class ViewController: UIViewController {
     }
     @IBAction func LetsStartGame(sender: UIButton) {
         startGameButton.hidden = true
-        
     }
+    
+    private func addGameViewBoundary() {
+        let gameViewPathLeft = UIBezierPath()
+        gameViewPathLeft.moveToPoint(CGPoint(x: gameView.bounds.origin.x, y: gameView.bounds.size.height))
+        gameViewPathLeft.addLineToPoint(CGPoint(x: gameView.bounds.origin.x, y: gameView.bounds.origin.y))
+        
+        let gameViewPathTop = UIBezierPath()
+        gameViewPathTop.moveToPoint(CGPoint(x: gameView.bounds.origin.x, y: gameView.bounds.origin.y))
+        gameViewPathTop.addLineToPoint(CGPoint(x: gameView.bounds.size.width, y: gameView.bounds.origin.y))
+        
+        let gameViewPathRight = UIBezierPath()
+        gameViewPathRight.moveToPoint(CGPoint(x: gameView.bounds.size.width, y: gameView.bounds.origin.y))
+        gameViewPathRight.addLineToPoint(CGPoint(x: gameView.bounds.size.width, y: gameView.bounds.size.height))
+        }
 
 
 }

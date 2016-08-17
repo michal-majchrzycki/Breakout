@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		908D052D1D64FA9800BAFF47 /* cavepaintings.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 908D052C1D64FA9800BAFF47 /* cavepaintings.jpg */; };
 		90DDB42C1D63BC3400D04134 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DDB42B1D63BC3400D04134 /* AppDelegate.swift */; };
 		90DDB42E1D63BC3400D04134 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DDB42D1D63BC3400D04134 /* ViewController.swift */; };
 		90DDB4311D63BC3400D04134 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90DDB42F1D63BC3400D04134 /* Main.storyboard */; };
@@ -15,7 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		90DDB4281D63BC3300D04134 /* Breakout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Breakout.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		908D052C1D64FA9800BAFF47 /* cavepaintings.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cavepaintings.jpg; sourceTree = "<group>"; };
+		90DDB4281D63BC3300D04134 /* PrehistoricBreakout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrehistoricBreakout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90DDB42B1D63BC3400D04134 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90DDB42D1D63BC3400D04134 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		90DDB4301D63BC3400D04134 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -35,9 +37,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		908D052A1D64FA4E00BAFF47 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				908D052C1D64FA9800BAFF47 /* cavepaintings.jpg */,
+			);
+			name = Images;
+			path = Breakout/Images;
+			sourceTree = "<group>";
+		};
+		908D052B1D64FA7200BAFF47 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				90DDB42B1D63BC3400D04134 /* AppDelegate.swift */,
+				90DDB4321D63BC3400D04134 /* Assets.xcassets */,
+				90DDB4341D63BC3400D04134 /* LaunchScreen.storyboard */,
+				90DDB4371D63BC3400D04134 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		90DDB41F1D63BC3300D04134 = {
 			isa = PBXGroup;
 			children = (
+				908D052A1D64FA4E00BAFF47 /* Images */,
 				90DDB42A1D63BC3300D04134 /* Breakout */,
 				90DDB4291D63BC3300D04134 /* Products */,
 			);
@@ -46,7 +69,7 @@
 		90DDB4291D63BC3300D04134 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				90DDB4281D63BC3300D04134 /* Breakout.app */,
+				90DDB4281D63BC3300D04134 /* PrehistoricBreakout.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -54,12 +77,9 @@
 		90DDB42A1D63BC3300D04134 /* Breakout */ = {
 			isa = PBXGroup;
 			children = (
-				90DDB42B1D63BC3400D04134 /* AppDelegate.swift */,
 				90DDB42D1D63BC3400D04134 /* ViewController.swift */,
 				90DDB42F1D63BC3400D04134 /* Main.storyboard */,
-				90DDB4321D63BC3400D04134 /* Assets.xcassets */,
-				90DDB4341D63BC3400D04134 /* LaunchScreen.storyboard */,
-				90DDB4371D63BC3400D04134 /* Info.plist */,
+				908D052B1D64FA7200BAFF47 /* Supporting Files */,
 			);
 			path = Breakout;
 			sourceTree = "<group>";
@@ -67,9 +87,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		90DDB4271D63BC3300D04134 /* Breakout */ = {
+		90DDB4271D63BC3300D04134 /* PrehistoricBreakout */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 90DDB43A1D63BC3400D04134 /* Build configuration list for PBXNativeTarget "Breakout" */;
+			buildConfigurationList = 90DDB43A1D63BC3400D04134 /* Build configuration list for PBXNativeTarget "PrehistoricBreakout" */;
 			buildPhases = (
 				90DDB4241D63BC3300D04134 /* Sources */,
 				90DDB4251D63BC3300D04134 /* Frameworks */,
@@ -79,9 +99,9 @@
 			);
 			dependencies = (
 			);
-			name = Breakout;
+			name = PrehistoricBreakout;
 			productName = Breakout;
-			productReference = 90DDB4281D63BC3300D04134 /* Breakout.app */;
+			productReference = 90DDB4281D63BC3300D04134 /* PrehistoricBreakout.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -99,7 +119,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 90DDB4231D63BC3300D04134 /* Build configuration list for PBXProject "Breakout" */;
+			buildConfigurationList = 90DDB4231D63BC3300D04134 /* Build configuration list for PBXProject "PrehistoricBreakout" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -112,7 +132,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				90DDB4271D63BC3300D04134 /* Breakout */,
+				90DDB4271D63BC3300D04134 /* PrehistoricBreakout */,
 			);
 		};
 /* End PBXProject section */
@@ -122,6 +142,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				908D052D1D64FA9800BAFF47 /* cavepaintings.jpg in Resources */,
 				90DDB4361D63BC3400D04134 /* LaunchScreen.storyboard in Resources */,
 				90DDB4331D63BC3400D04134 /* Assets.xcassets in Resources */,
 				90DDB4311D63BC3400D04134 /* Main.storyboard in Resources */,
@@ -253,8 +274,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Breakout/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Michal-Majchrzycki.Breakout";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "Michal-Majchrzycki.PrehistoricBreakout";
+				PRODUCT_NAME = PrehistoricBreakout;
 			};
 			name = Debug;
 		};
@@ -264,15 +285,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Breakout/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Michal-Majchrzycki.Breakout";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "Michal-Majchrzycki.PrehistoricBreakout";
+				PRODUCT_NAME = PrehistoricBreakout;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		90DDB4231D63BC3300D04134 /* Build configuration list for PBXProject "Breakout" */ = {
+		90DDB4231D63BC3300D04134 /* Build configuration list for PBXProject "PrehistoricBreakout" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				90DDB4381D63BC3400D04134 /* Debug */,
@@ -281,13 +302,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		90DDB43A1D63BC3400D04134 /* Build configuration list for PBXNativeTarget "Breakout" */ = {
+		90DDB43A1D63BC3400D04134 /* Build configuration list for PBXNativeTarget "PrehistoricBreakout" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				90DDB43B1D63BC3400D04134 /* Debug */,
 				90DDB43C1D63BC3400D04134 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
