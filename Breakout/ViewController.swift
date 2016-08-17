@@ -37,6 +37,53 @@ class ViewController: UIViewController, UIDynamicAnimatorDelegate, UICollisionBe
     }
     @IBAction func LetsStartGame(sender: UIButton) {
         startGameButton.hidden = true
+        showBricks()
+    }
+    
+    // Mark: Paddle
+    
+    private var paddle: Paddle?
+    
+    private func createPaddle() {
+        if paddle == nil {
+            paddle = Paddle(referenceView: gameView)
+            gameView.addSubview(paddle!)
+        }
+    }
+    
+    private func removePaddle() {
+        paddle?.removeFromSuperview()
+        paddle = nil
+    }
+
+    // Mark: Brick
+    
+    private var bricks = [String:Brick]()
+    private let brickHeight = 30
+    private let bricksPerRow = 6
+    private let topBrickDistanceFromTop = 100
+    
+    private func removeAllBricks() {
+        for (identifier, brick) in bricks {
+            brick.removeFromSuperview()
+        }
+        bricks = [String:Brick]()
+    }
+
+    private func showBricks() {
+        guard bricks.isEmpty else { return }
+        let brickWidth = gameView.bounds.size.width / CGFloat(bricksPerRow)
+        
+        for row in 0 ..< bricksPerRow {
+            for column in 0 ..< bricksPerRow {
+                var frame = CGRect(origin: CGPointZero, size: CGSize(width: brickWidth, height: CGFloat(brickHeight)))
+                frame.origin = CGPoint(x: column * Int(brickWidth), y: (row * brickHeight) + topBrickDistanceFromTop )
+                
+                var brick: Brick!
+
+                gameView.addSubview(brick)
+            }
+        }
     }
     
     private func addGameViewBoundary() {

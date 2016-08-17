@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		908D052D1D64FA9800BAFF47 /* cavepaintings.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 908D052C1D64FA9800BAFF47 /* cavepaintings.jpg */; };
+		908D05321D64FF8E00BAFF47 /* Paddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D05311D64FF8E00BAFF47 /* Paddle.swift */; };
+		908D05341D65051C00BAFF47 /* Brick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D05331D65051C00BAFF47 /* Brick.swift */; };
 		90DDB42C1D63BC3400D04134 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DDB42B1D63BC3400D04134 /* AppDelegate.swift */; };
 		90DDB42E1D63BC3400D04134 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DDB42D1D63BC3400D04134 /* ViewController.swift */; };
 		90DDB4311D63BC3400D04134 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90DDB42F1D63BC3400D04134 /* Main.storyboard */; };
@@ -17,6 +19,8 @@
 
 /* Begin PBXFileReference section */
 		908D052C1D64FA9800BAFF47 /* cavepaintings.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cavepaintings.jpg; sourceTree = "<group>"; };
+		908D05311D64FF8E00BAFF47 /* Paddle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paddle.swift; sourceTree = "<group>"; };
+		908D05331D65051C00BAFF47 /* Brick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brick.swift; sourceTree = "<group>"; };
 		90DDB4281D63BC3300D04134 /* PrehistoricBreakout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrehistoricBreakout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90DDB42B1D63BC3400D04134 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90DDB42D1D63BC3400D04134 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +61,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		908D052E1D64FE9200BAFF47 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				908D05311D64FF8E00BAFF47 /* Paddle.swift */,
+				908D05331D65051C00BAFF47 /* Brick.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		90DDB41F1D63BC3300D04134 = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +90,7 @@
 		90DDB42A1D63BC3300D04134 /* Breakout */ = {
 			isa = PBXGroup;
 			children = (
+				908D052E1D64FE9200BAFF47 /* Views */,
 				90DDB42D1D63BC3400D04134 /* ViewController.swift */,
 				90DDB42F1D63BC3400D04134 /* Main.storyboard */,
 				908D052B1D64FA7200BAFF47 /* Supporting Files */,
@@ -156,6 +170,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				908D05321D64FF8E00BAFF47 /* Paddle.swift in Sources */,
+				908D05341D65051C00BAFF47 /* Brick.swift in Sources */,
 				90DDB42E1D63BC3400D04134 /* ViewController.swift in Sources */,
 				90DDB42C1D63BC3400D04134 /* AppDelegate.swift in Sources */,
 			);
