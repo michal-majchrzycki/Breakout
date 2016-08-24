@@ -5,6 +5,7 @@ class ViewController: UIViewController, UIDynamicAnimatorDelegate, UICollisionBe
     @IBOutlet weak var startGameButton: UIButton!
     @IBOutlet weak var gameView: UIView!
     @IBOutlet weak var gameOverLabel: UILabel!
+    @IBOutlet var movePaddle: UIPanGestureRecognizer!
     
     private lazy var animator: UIDynamicAnimator = {
         
@@ -43,11 +44,6 @@ class ViewController: UIViewController, UIDynamicAnimatorDelegate, UICollisionBe
                     if !CGRectIntersectsRect(ball.frame, self.gameView.frame) { self.removeBall(ball) }
                 }
                 
-                
-                
-            
-                
-                
                 if self.balls.count == 0 && self.frozenBall == nil {
                     print("Game Over!")
                 }
@@ -64,7 +60,7 @@ class ViewController: UIViewController, UIDynamicAnimatorDelegate, UICollisionBe
                                                          name: "BreakoutViewControllerUpdateSettings",
                                                          object: nil)
     }
-
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -75,14 +71,41 @@ class ViewController: UIViewController, UIDynamicAnimatorDelegate, UICollisionBe
         super.viewDidLayoutSubviews()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if frozenBall != nil {
+            gameView.hidden = true
+            restoreBalls()
+        }
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        if !balls.isEmpty {
+            freezeBall()
+            removeAllBalls()
+        }
+    }
+    
+
+    
     @IBAction func LetsStartGame(sender: UIButton) {
         startGameButton.hidden = true
         showBricks()
+        gameView.userInteractionEnabled = true
+        movePaddle.enabled = true
+        createPaddle()
+        addGameViewBoundary()
+        createBall()
     }
     
     private func gameOver() {
         gameView.userInteractionEnabled = false
-        gameOverLabel.hidden = false
+        movePaddle.enabled = false
+        
+        gameView.hidden = false
+        
+        removePaddle()
         removeAllBricks()
     }
     
@@ -132,12 +155,6 @@ class ViewController: UIViewController, UIDynamicAnimatorDelegate, UICollisionBe
                 
                 frame.origin.y = (paddle?.frame.origin.y)! - ballSize.height
                 
-                // Hints
-                // 5. The bouncing ball, on the other hand, almost certainly does want to be
-                // a UIView that is participating in the collisions (with the brick, paddle
-                // and wall boundaries). That’s because the bouncing ball is moving all over
-                // the place and you want the physics engine to be able to control its behavior.
-                
                 let ball = Ball(frame: frame)
                 brekoutPhysics.addBall(ball)
                 balls.append(ball)
@@ -171,15 +188,57 @@ class ViewController: UIViewController, UIDynamicAnimatorDelegate, UICollisionBe
     private var paddle: Paddle?
     
     private func createPaddle() {
+        firstHitRequiredFromPaddle = true
         if paddle == nil {
             paddle = Paddle(referenceView: gameView)
             gameView.addSubview(paddle!)
+            syncPaddleBounds()
         }
     }
     
     private func removePaddle() {
+        brekoutPhysics.removeBounds(named: BoundaryNames.paddleBoundary)
         paddle?.removeFromSuperview()
         paddle = nil
+    }
+    
+    @IBAction func movePaddleOn(gesture: UIPanGestureRecognizer) {
+        switch gesture.state {
+        case .Ended: fallthrough
+        case .Changed:
+            let velocity = gesture.velocityInView(gameView)
+            if let paddle = paddle {
+                paddle.moveStuff(velocity)
+                
+                var ballDidIntersect = false
+                for ball in balls {
+                    if CGRectIntersectsRect(paddle.frame, ball.frame) {
+                        ballDidIntersect = true
+                    }
+                }
+                if !ballDidIntersect {
+                    syncPaddleBounds()
+                }
+            }
+            
+            gesture.setTranslation(CGPointZero, inView: gameView)
+        default: break
+        }
+    }
+    private func syncPaddleBounds() {
+        if let paddleView = paddle {
+                     var paddleBoundary: UIBezierPath!
+            
+            if firstHitRequiredFromPaddle {
+                paddleBoundary = UIBezierPath(rect: paddleView.frame)
+            } else {
+                // Hints
+    
+                
+                paddleBoundary = UIBezierPath(ovalInRect: paddleView.frame)
+            }
+            brekoutPhysics.addBounds(paddleBoundary, named: BoundaryNames.paddleBoundary)
+        }
     }
     
     private func gameViewBounds() {

@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -19,8 +18,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prehistoric Breakout" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIL-xD-Q5Q">
-                                <rect key="frame" x="116" y="263" width="368" height="74"/>
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="30"/>
+                                <rect key="frame" x="169" y="277" width="262" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="262" id="fDm-mC-cdM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
                                 <color key="textColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -29,10 +31,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="QIL-xD-Q5Q" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="243" id="Q0a-KX-Odg"/>
-                            <constraint firstItem="QIL-xD-Q5Q" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="T47-Ct-28G"/>
-                            <constraint firstItem="QIL-xD-Q5Q" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="96" id="qUe-dO-Fxg"/>
-                            <constraint firstItem="QIL-xD-Q5Q" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="svg-B4-DvF"/>
+                            <constraint firstItem="QIL-xD-Q5Q" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="257" id="ZDW-l9-rKq"/>
+                            <constraint firstItem="QIL-xD-Q5Q" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ub6-RX-v69"/>
+                            <constraint firstItem="QIL-xD-Q5Q" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="v9Z-y4-AiK"/>
                         </constraints>
                     </view>
                 </viewController>
