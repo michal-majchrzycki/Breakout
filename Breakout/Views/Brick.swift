@@ -1,7 +1,5 @@
 import UIKit
 
-class Brick: UIImageView {
-
     enum BrickType: Int {
         case Regular = 0, SmallerPaddle, LargerPaddle
         
@@ -18,12 +16,16 @@ class Brick: UIImageView {
         var color: UIColor {
             switch self {
             case .Regular:
-                return UIColor(red: 177/255.0, green: 160/255.0, blue: 164/255.0, alpha: 1.0)
+                return UIColor.whiteColor()
             case .SmallerPaddle:
-                return UIColor(red: 225/255.0, green: 232/255.0, blue: 111/255.0, alpha: 1.0)
+                return UIColor.whiteColor()
             case .LargerPaddle:
-                return UIColor(red: 194/255.0, green: 231/255.0, blue: 112/255.0, alpha: 1.0)
+                return UIColor.whiteColor()
             }
+        }
+        
+        static var count: Int {
+            return LargerPaddle.hashValue + 1
         }
         
     }
@@ -61,5 +63,4 @@ class Brick: UIImageView {
             type?.color.set()
             path.fill()
         }
-}
 }

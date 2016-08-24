@@ -10,6 +10,8 @@
 		908D052D1D64FA9800BAFF47 /* cavepaintings.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 908D052C1D64FA9800BAFF47 /* cavepaintings.jpg */; };
 		908D05321D64FF8E00BAFF47 /* Paddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D05311D64FF8E00BAFF47 /* Paddle.swift */; };
 		908D05341D65051C00BAFF47 /* Brick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D05331D65051C00BAFF47 /* Brick.swift */; };
+		908D053C1D68C05500BAFF47 /* BrekoutPhysics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D053B1D68C05500BAFF47 /* BrekoutPhysics.swift */; };
+		90A3E4A91D6E31FF00340AE6 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A3E4A81D6E31FF00340AE6 /* Ball.swift */; };
 		90DDB42C1D63BC3400D04134 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DDB42B1D63BC3400D04134 /* AppDelegate.swift */; };
 		90DDB42E1D63BC3400D04134 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DDB42D1D63BC3400D04134 /* ViewController.swift */; };
 		90DDB4311D63BC3400D04134 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90DDB42F1D63BC3400D04134 /* Main.storyboard */; };
@@ -21,6 +23,8 @@
 		908D052C1D64FA9800BAFF47 /* cavepaintings.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cavepaintings.jpg; sourceTree = "<group>"; };
 		908D05311D64FF8E00BAFF47 /* Paddle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paddle.swift; sourceTree = "<group>"; };
 		908D05331D65051C00BAFF47 /* Brick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brick.swift; sourceTree = "<group>"; };
+		908D053B1D68C05500BAFF47 /* BrekoutPhysics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrekoutPhysics.swift; sourceTree = "<group>"; };
+		90A3E4A81D6E31FF00340AE6 /* Ball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
 		90DDB4281D63BC3300D04134 /* PrehistoricBreakout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrehistoricBreakout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90DDB42B1D63BC3400D04134 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90DDB42D1D63BC3400D04134 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,8 +70,17 @@
 			children = (
 				908D05311D64FF8E00BAFF47 /* Paddle.swift */,
 				908D05331D65051C00BAFF47 /* Brick.swift */,
+				90A3E4A81D6E31FF00340AE6 /* Ball.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		908D053D1D68CF5600BAFF47 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				908D053B1D68C05500BAFF47 /* BrekoutPhysics.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		90DDB41F1D63BC3300D04134 = {
@@ -90,6 +103,7 @@
 		90DDB42A1D63BC3300D04134 /* Breakout */ = {
 			isa = PBXGroup;
 			children = (
+				908D053D1D68CF5600BAFF47 /* Model */,
 				908D052E1D64FE9200BAFF47 /* Views */,
 				90DDB42D1D63BC3400D04134 /* ViewController.swift */,
 				90DDB42F1D63BC3400D04134 /* Main.storyboard */,
@@ -170,10 +184,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90A3E4A91D6E31FF00340AE6 /* Ball.swift in Sources */,
 				908D05321D64FF8E00BAFF47 /* Paddle.swift in Sources */,
 				908D05341D65051C00BAFF47 /* Brick.swift in Sources */,
 				90DDB42E1D63BC3400D04134 /* ViewController.swift in Sources */,
 				90DDB42C1D63BC3400D04134 /* AppDelegate.swift in Sources */,
+				908D053C1D68C05500BAFF47 /* BrekoutPhysics.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

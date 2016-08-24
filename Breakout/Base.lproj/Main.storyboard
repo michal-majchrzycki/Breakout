@@ -24,10 +24,23 @@
                                         <rect key="frame" x="0.0" y="0.0" width="1162" height="1481"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Over!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tE7-N6-ZfM">
+                                        <rect key="frame" x="192" y="222" width="216" height="49"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="216" id="w4q-gi-IUJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <size key="shadowOffset" width="1" height="1"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="0.23455975506756757" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="tE7-N6-ZfM" firstAttribute="centerX" secondItem="0sK-33-BTk" secondAttribute="centerX" id="5Au-CQ-Zbb"/>
                                     <constraint firstItem="cvX-b2-Z1R" firstAttribute="top" secondItem="0sK-33-BTk" secondAttribute="top" id="88R-x1-94E"/>
+                                    <constraint firstItem="tE7-N6-ZfM" firstAttribute="top" secondItem="0sK-33-BTk" secondAttribute="top" constant="222" id="95K-Z2-hbB"/>
                                     <constraint firstItem="cvX-b2-Z1R" firstAttribute="leading" secondItem="0sK-33-BTk" secondAttribute="leading" id="c0B-Nm-Yvs"/>
                                 </constraints>
                             </view>
@@ -59,6 +72,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="gameOverLabel" destination="tE7-N6-ZfM" id="Ucj-Tn-bhd"/>
                         <outlet property="gameView" destination="0sK-33-BTk" id="KFM-5H-e78"/>
                         <outlet property="startGameButton" destination="Sjt-g6-5hv" id="2sl-31-mQD"/>
                     </connections>
