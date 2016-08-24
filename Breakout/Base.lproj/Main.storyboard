@@ -81,7 +81,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="gdp-Ef-3Vk">
                     <connections>
-                        <action selector="movePaddle:" destination="BYZ-38-t0r" id="tzr-ta-LEV"/>
+                        <action selector="movePaddleOn:" destination="BYZ-38-t0r" id="Y3X-ri-S7J"/>
                     </connections>
                 </panGestureRecognizer>
             </objects>
