@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Breakout View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PrehistoricBreakout" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="BreakoutViewController" customModule="PrehistoricBreakout" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -20,7 +20,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0sK-33-BTk" userLabel="GameView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="cavepaintings.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="cvX-b2-Z1R">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cavepaintings.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="cvX-b2-Z1R">
                                         <rect key="frame" x="0.0" y="0.0" width="1162" height="1481"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
@@ -43,6 +43,10 @@
                                     <constraint firstItem="tE7-N6-ZfM" firstAttribute="top" secondItem="0sK-33-BTk" secondAttribute="top" constant="222" id="95K-Z2-hbB"/>
                                     <constraint firstItem="cvX-b2-Z1R" firstAttribute="leading" secondItem="0sK-33-BTk" secondAttribute="leading" id="c0B-Nm-Yvs"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="VGM-eh-mSv" appends="YES" id="gFs-1u-rRr"/>
+                                    <outletCollection property="gestureRecognizers" destination="gdp-Ef-3Vk" appends="YES" id="LvN-wM-4Hv"/>
+                                </connections>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CH6-Z3-LlO">
                                 <rect key="frame" x="195" y="270" width="210" height="60"/>
@@ -55,7 +59,7 @@
                                             <color key="titleShadowColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="LetsStartGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UbR-dl-2Dd"/>
+                                            <action selector="startGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="znq-Mx-mTp"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -73,15 +77,17 @@
                     </view>
                     <connections>
                         <outlet property="gameOverLabel" destination="tE7-N6-ZfM" id="Ucj-Tn-bhd"/>
-                        <outlet property="gameView" destination="0sK-33-BTk" id="KFM-5H-e78"/>
-                        <outlet property="movePaddle" destination="gdp-Ef-3Vk" id="Fd7-rU-PRG"/>
+                        <outlet property="gameView" destination="0sK-33-BTk" id="hzD-uZ-qdJ"/>
+                        <outlet property="movePaddleGesture" destination="gdp-Ef-3Vk" id="t3N-lL-KWW"/>
+                        <outlet property="pushBallGesture" destination="VGM-eh-mSv" id="uSt-7p-2rD"/>
                         <outlet property="startGameButton" destination="Sjt-g6-5hv" id="2sl-31-mQD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="VGM-eh-mSv"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="gdp-Ef-3Vk">
                     <connections>
-                        <action selector="movePaddleOn:" destination="BYZ-38-t0r" id="Y3X-ri-S7J"/>
+                        <action selector="movePaddle:" destination="BYZ-38-t0r" id="4hI-qB-4Gt"/>
                     </connections>
                 </panGestureRecognizer>
             </objects>

@@ -2,79 +2,90 @@ import UIKit
 
 class Paddle: UIImageView {
 
-    private let defaultVelocityDivide: CGFloat = 20
-    private let defaultWitdh: CGFloat = 80
-    private var currentWidth: CGFloat = 80
-    private let stepperWidth: CGFloat = 10
-    private let minimalWidth: CGFloat = 40
-    private let maximumWidth: CGFloat = 120
-    private let height: CGFloat = 18.0
-    private let distanceFromBottom: CGFloat = 100.0
-    private var referenceView: UIView!
-    
-    init(referenceView: UIView) {
-        super.init(frame: CGRectZero)
-        self.referenceView = referenceView
+        private let defaultVelocityDivider: CGFloat = 20
         
-        backgroundColor = UIColor.brownColor()
-        layer.cornerRadius = CGFloat(height / 2.5)
-        layer.borderColor = UIColor.blackColor().CGColor
-        layer.borderWidth = 1.7
+        private let defaultWidth: CGFloat = 80
+        private var currentWidth: CGFloat = 80
+        private let widthStepper: CGFloat = 10
+        private let minWidth: CGFloat = 40
+        private let maxWidth: CGFloat = 120
         
-        frame = CGRect(origin: CGPointZero, size: CGSize(width: currentWidth, height: height))
-        frame.origin.x = referenceView.bounds.size.width/2 - currentWidth/2
-        frame.origin.y = referenceView.bounds.size.height - height - distanceFromBottom
-    }
-    
-    required init(coder aDecoder: NSCoder) {
-        fatalError()
-    }
-    
-    func moveStuff(velocity: CGPoint) {
-        let proposedCenter = CGPoint(x: center.x + velocity.x/defaultVelocityDivide, y: self.center.y)
-        let newCenter = getCenterForProposedCenter(proposedCenter)
+        private let height: CGFloat = 18.0
+        private let distanceFromBottom: CGFloat = 100.0
         
-        UIView.animateWithDuration(0.0, delay: 0.0, options: [UIViewAnimationOptions.AllowUserInteraction, UIViewAnimationOptions.CurveEaseIn], animations: { self.center = proposedCenter }, completion: nil)
-    }
-    
-    private func getCenterForProposedCenter(proposedCenter: CGPoint) -> CGPoint {
-        var newCenter = proposedCenter
+        private var referenceView: UIView!
         
-        let paddleLeftEdgeAtNewCenter = floor(newCenter.x - (currentWidth/2))
-        let paddleRightEdgeAtNewCenter = ceil(newCenter.x + (currentWidth/2))
-        
-        let referenceViewLeftEdge = floor(referenceView.bounds.origin.x)
-        let referenceViewRightEdge = ceil(referenceView.bounds.width)
-        
-        if paddleLeftEdgeAtNewCenter <= referenceViewLeftEdge {
-            newCenter.x = floor(CGFloat(currentWidth/2))
-        } else if paddleRightEdgeAtNewCenter >= referenceViewRightEdge {
-            newCenter.x = ceil(referenceView.bounds.width - (currentWidth/2))
+        init(referenceView: UIView) {
+            super.init(frame: CGRectZero)
+            self.referenceView = referenceView
+            
+            backgroundColor = UIColor(red: 141/255.0, green: 185/255.0, blue: 230/255.0, alpha: 1.0)
+            layer.cornerRadius = CGFloat(height / 2.5)
+            
+            layer.borderColor = UIColor(red: 0/255.0, green: 52/255.0, blue: 120/255.0, alpha: 1.0).CGColor
+            layer.borderWidth = 1.7
+            
+            frame = CGRect(origin: CGPointZero, size: CGSize(width: currentWidth, height: height))
+            frame.origin.x = referenceView.bounds.size.width/2 - currentWidth/2
+            frame.origin.y = referenceView.bounds.size.height - height - distanceFromBottom
         }
-        return newCenter
-    }
-    func decreaseWidth() {
-        var newWidth = currentWidth - stepperWidth
-        if newWidth < minimalWidth {
-            newWidth = minimalWidth
+        
+        required init?(coder aDecoder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
         }
-        currentWidth = newWidth
-        resizePaddle()
-    }
-    
-    func increaseWidth() {
-        var newWidth = currentWidth + stepperWidth
-        if newWidth > maximumWidth {
-            newWidth = maximumWidth
+        
+        func move(velocity: CGPoint) {
+            let proposedCenter = CGPoint(x: center.x + velocity.x/defaultVelocityDivider, y: self.center.y)
+            let newCenter = getCenterForProposedCenter(proposedCenter)
+            
+            UIView.animateWithDuration(0.0,
+                                       delay: 0.0,
+                                       options: [UIViewAnimationOptions.AllowUserInteraction, UIViewAnimationOptions.CurveEaseIn],
+                                       animations: {
+                                        self.center = newCenter
+                },
+                                       completion: nil
+            )
         }
-        currentWidth = newWidth
-        resizePaddle()
-    }
-    
-    private func resizePaddle() {
-        let newCenter = getCenterForProposedCenter(center)
-        frame = CGRect(origin: CGPointZero, size: CGSize(width: currentWidth, height: height))
-        center = newCenter
-    }
-    
+        
+        private func getCenterForProposedCenter(proposedCenter: CGPoint) -> CGPoint {
+            var newCenter = proposedCenter
+            
+            let paddleLeftEdgeAtNewCenter = floor(newCenter.x - (currentWidth/2))
+            let paddleRightEdgeAtNewCenter = ceil(newCenter.x + (currentWidth/2))
+            
+            let referenceViewLeftEdge = floor(referenceView.bounds.origin.x)
+            let referenceViewRightEdge = ceil(referenceView.bounds.width)
+            
+            if paddleLeftEdgeAtNewCenter <= referenceViewLeftEdge {
+                newCenter.x = floor(CGFloat(currentWidth/2))
+            } else if paddleRightEdgeAtNewCenter >= referenceViewRightEdge {
+                newCenter.x = ceil(referenceView.bounds.width - (currentWidth/2))
+            }
+            return newCenter
+        }
+        
+        func decreaseWidth() {
+            var newWidth = currentWidth - widthStepper
+            if newWidth < minWidth {
+                newWidth = minWidth
+            }
+            currentWidth = newWidth
+            resizePaddle()
+        }
+        
+        func increaseWidth() {
+            var newWidth = currentWidth + widthStepper
+            if newWidth > maxWidth {
+                newWidth = maxWidth
+            }
+            currentWidth = newWidth
+            resizePaddle()
+        }
+        
+        private func resizePaddle() {
+            let newCenter = getCenterForProposedCenter(center)
+            frame = CGRect(origin: CGPointZero, size: CGSize(width: currentWidth, height: height))
+            center = newCenter
+        }    
 }

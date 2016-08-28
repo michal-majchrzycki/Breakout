@@ -2,42 +2,46 @@ import UIKit
 
 class BrekoutPhysics: UIDynamicBehavior {
 
-    lazy var colidePhysics: UICollisionBehavior = {
-    let createdColidePhycisc = UICollisionBehavior()
-        return createdColidePhycisc
+    lazy var collidor: UICollisionBehavior = {
+        let lazilyCreatedCollisionBehavior = UICollisionBehavior()
+        return lazilyCreatedCollisionBehavior
     }()
     
-    lazy var gravityPhysics: UIGravityBehavior = {
-        let createdGravityPhysics = UIGravityBehavior()
-        return createdGravityPhysics
-    }()
-   
-    lazy var ballPhysics: UIDynamicItemBehavior = {
-        let createdBallPhysics = UIDynamicItemBehavior()
-        createdBallPhysics.resistance = 0.0
-        createdBallPhysics.friction = 0.1
-        createdBallPhysics.allowsRotation = true
-        return createdBallPhysics
+    lazy var gravity: UIGravityBehavior = {
+        let lazilyCreatedGravityBehavior = UIGravityBehavior()
+        
+        lazilyCreatedGravityBehavior.magnitude = UserSettings.sharedInstance.gravity
+        lazilyCreatedGravityBehavior.gravityDirection = CGVector(dx: 0.0, dy: UserSettings.sharedInstance.gravity * 0.5)
+        return lazilyCreatedGravityBehavior
     }()
     
-    override init()
-    {
+    lazy var ballBehavior: UIDynamicItemBehavior = {
+        let lazilyCreatedBallBehavior = UIDynamicItemBehavior()
+        lazilyCreatedBallBehavior.elasticity = UserSettings.sharedInstance.elasticity
+        lazilyCreatedBallBehavior.resistance = 0.0
+        lazilyCreatedBallBehavior.friction = 0.1
+        lazilyCreatedBallBehavior.allowsRotation = true
+        return lazilyCreatedBallBehavior
+    }()
+    
+    override init() {
         super.init()
-        addChildBehavior(colidePhysics)
-        addChildBehavior(gravityPhysics)
-        addChildBehavior(ballPhysics)
+        addChildBehavior(gravity)
+        addChildBehavior(collidor)
+        addChildBehavior(ballBehavior)
     }
     
-    func addBounds(path: UIBezierPath, named name: String) {
-        colidePhysics.removeBoundaryWithIdentifier(name)
-        colidePhysics.addBoundaryWithIdentifier(name, forPath: path)
+    
+    func addBoundary(path: UIBezierPath, named name: String) {
+        collidor.removeBoundaryWithIdentifier(name)
+        collidor.addBoundaryWithIdentifier(name, forPath: path)
     }
     
-    func removeBounds(named name: String) {
-        colidePhysics.removeBoundaryWithIdentifier(name)
+    func removeBoundary(named name: String) {
+        collidor.removeBoundaryWithIdentifier(name)
     }
     
-    private struct forDevice {
+    private struct Device {
         struct iPhone5s {
             static let Width: CGFloat = 320.0
             static let Height: CGFloat = 568.0
@@ -63,30 +67,32 @@ class BrekoutPhysics: UIDynamicBehavior {
             static let Height: CGFloat = 2732.0
         }
     }
-
-    func ballPhysics (ball: Ball) {
+    
+    
+    func pushBall(ball: Ball) {
         let pushBehavior = UIPushBehavior(items: [ball], mode: UIPushBehaviorMode.Instantaneous)
-        let linearVelocity = ballPhysics.linearVelocityForItem(ball)
+        let linearVelocity = ballBehavior.linearVelocityForItem(ball)
         
         let referenceViewHeight = dynamicAnimator?.referenceView?.bounds.size.height
-        if referenceViewHeight > forDevice.iPhone5s.Height {
+        if referenceViewHeight > Device.iPhone5s.Height {
             pushBehavior.magnitude = 0.2
-        } else if referenceViewHeight > forDevice.iPhone6Plus.Height {
+        } else if referenceViewHeight > Device.iPhone6Plus.Height {
             pushBehavior.magnitude = 0.3
-        } else if referenceViewHeight > forDevice.iPad2.Height {
+        } else if referenceViewHeight > Device.iPad2.Height {
             pushBehavior.magnitude = 0.35
-        } else if referenceViewHeight > forDevice.iPadAir.Height {
+        } else if referenceViewHeight > Device.iPadAir.Height {
             pushBehavior.magnitude = 0.4
         } else {
             pushBehavior.magnitude = 0.15
         }
+        
         let currentAngle = Double(atan2(linearVelocity.y, linearVelocity.x))
         let oppositeAngle = CGFloat((currentAngle + M_PI) % (2 * M_PI))
         
-        let lower = oppositeAngle - CGFloat.degreeForRadius(35)
-        let upper = oppositeAngle + CGFloat.degreeForRadius(35)
+        let lower = oppositeAngle - CGFloat.degreeToRadian(30)
+        let upper = oppositeAngle + CGFloat.degreeToRadian(30)
+        pushBehavior.angle = CGFloat.randomRadian(lower, upper)
         
-        pushBehavior.angle = CGFloat.defaultRadius(lower, upper)
 
         pushBehavior.action = { [unowned pushBehavior] in
             pushBehavior.removeItem(ball)
@@ -115,13 +121,13 @@ class BrekoutPhysics: UIDynamicBehavior {
         let pushBehavior = UIPushBehavior(items: [ball], mode: UIPushBehaviorMode.Instantaneous)
         
         let referenceViewHeight = dynamicAnimator?.referenceView?.bounds.size.height
-        if referenceViewHeight > forDevice.iPhone5s.Height {
+        if referenceViewHeight > Device.iPhone5s.Height {
             pushBehavior.magnitude = 0.2
-        } else if referenceViewHeight > forDevice.iPhone6Plus.Height {
+        } else if referenceViewHeight > Device.iPhone6Plus.Height {
             pushBehavior.magnitude = 0.3
-        } else if referenceViewHeight > forDevice.iPad2.Height {
+        } else if referenceViewHeight > Device.iPad2.Height {
             pushBehavior.magnitude = 0.35
-        } else if referenceViewHeight > forDevice.iPadAir.Height {
+        } else if referenceViewHeight > Device.iPadAir.Height {
             pushBehavior.magnitude = 0.4
         } else {
             pushBehavior.magnitude = 0.15
@@ -129,7 +135,7 @@ class BrekoutPhysics: UIDynamicBehavior {
         
         let lower =  CGFloat(((90-15) * M_PI)/180)
         let upper = CGFloat(((90+15) * M_PI)/180)
-        pushBehavior.angle = CGFloat.defaultRadius(lower, upper)
+        pushBehavior.angle = CGFloat.randomRadian(lower, upper)
         
         pushBehavior.action = { [unowned pushBehavior] in
             pushBehavior.removeItem(ball)
@@ -140,27 +146,26 @@ class BrekoutPhysics: UIDynamicBehavior {
     
     func addBall(ball: Ball) {
         dynamicAnimator?.referenceView?.addSubview(ball)
-        gravityPhysics.addItem(ball)
-        colidePhysics.addItem(ball)
-        ballPhysics.addItem(ball)
+        gravity.addItem(ball)
+        collidor.addItem(ball)
+        ballBehavior.addItem(ball)
     }
     
     func removeBall(ball: Ball) {
-        gravityPhysics.removeItem(ball)
-        colidePhysics.removeItem(ball)
-        ballPhysics.removeItem(ball)
+        gravity.removeItem(ball)
+        collidor.removeItem(ball)
+        ballBehavior.removeItem(ball)
         ball.removeFromSuperview()
     }
     
 }
 
-
 private extension CGFloat {
-    static func defaultRadius(lower: CGFloat = 0, _ upper: CGFloat = CGFloat(2 * M_PI)) -> CGFloat {
+    static func randomRadian(lower: CGFloat = 0, _ upper: CGFloat = CGFloat(2 * M_PI)) -> CGFloat {
         return CGFloat(Float(arc4random()) / Float(UINT32_MAX)) * (upper - lower) + lower
     }
     
-    static func degreeForRadius(degree: Double) -> CGFloat {
+    static func degreeToRadian(degree: Double) -> CGFloat {
         return CGFloat((degree * M_PI)/180)
     }
 }
