@@ -20,6 +20,8 @@
 		90DDB4311D63BC3400D04134 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90DDB42F1D63BC3400D04134 /* Main.storyboard */; };
 		90DDB4331D63BC3400D04134 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90DDB4321D63BC3400D04134 /* Assets.xcassets */; };
 		90DDB4361D63BC3400D04134 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90DDB4341D63BC3400D04134 /* LaunchScreen.storyboard */; };
+		90F525781D74E07A00AF5789 /* Settings-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 90F525761D74E07A00AF5789 /* Settings-50.png */; };
+		90F525791D74E07A00AF5789 /* Stones-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 90F525771D74E07A00AF5789 /* Stones-50.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		90DDB4321D63BC3400D04134 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90DDB4351D63BC3400D04134 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		90DDB4371D63BC3400D04134 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90F525761D74E07A00AF5789 /* Settings-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings-50.png"; sourceTree = "<group>"; };
+		90F525771D74E07A00AF5789 /* Stones-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stones-50.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			isa = PBXGroup;
 			children = (
 				908D052C1D64FA9800BAFF47 /* cavepaintings.jpg */,
+				90F525761D74E07A00AF5789 /* Settings-50.png */,
+				90F525771D74E07A00AF5789 /* Stones-50.png */,
 			);
 			name = Images;
 			path = Breakout/Images;
@@ -183,7 +189,9 @@
 			files = (
 				908D052D1D64FA9800BAFF47 /* cavepaintings.jpg in Resources */,
 				90DDB4361D63BC3400D04134 /* LaunchScreen.storyboard in Resources */,
+				90F525791D74E07A00AF5789 /* Stones-50.png in Resources */,
 				90DDB4331D63BC3400D04134 /* Assets.xcassets in Resources */,
+				90F525781D74E07A00AF5789 /* Settings-50.png in Resources */,
 				90DDB4311D63BC3400D04134 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -51,9 +51,6 @@ class UserSettings {
         }
         set {
             userDefaults.setValue(newValue, forKey: Keys.GravityMagnitude)
-            // though NSUserDefaults will automatically save the data
-            // always call synchronize(), especially for testing
-            // since the call isn't expensive
             userDefaults.synchronize()
         }
     }

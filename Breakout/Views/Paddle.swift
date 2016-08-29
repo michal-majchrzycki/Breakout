@@ -31,7 +31,7 @@ class Paddle: UIImageView {
         }
         
         required init?(coder aDecoder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
+            fatalError("init(coder:) ups, problem!")
         }
         
         func move(velocity: CGPoint) {

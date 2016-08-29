@@ -183,7 +183,7 @@ class BreakoutViewController: UIViewController, UIDynamicAnimatorDelegate, UICol
         
         if let identifier = identifier as? String {
             if let brick = bricks[identifier], brickType = brick.type {
-                brick.currentHits++
+                brick.currentHits += 1
                 if brick.currentHits >= brickType.hitsRequired {
                     
                     breakoutPhysics.removeBoundary(named: identifier)
@@ -214,7 +214,6 @@ class BreakoutViewController: UIViewController, UIDynamicAnimatorDelegate, UICol
                         }
                     )
                     
-                    // drop power if its a special brick
                     if brickType != .Regular { dropSpecialBrickPowerAt(brick.center, brickType: brickType) }
                 }
             }
