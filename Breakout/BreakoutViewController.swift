@@ -90,7 +90,6 @@ class BreakoutViewController: UIViewController, BreakoutGameDelegate {
         }
     }
     
-    // MARK: - Breakout game
     
     func startGame() {
         for view in breakoutGameView.subviews {
@@ -99,6 +98,7 @@ class BreakoutViewController: UIViewController, BreakoutGameDelegate {
         
         breakoutGameView.type = BreakoutViewType.Boundary
         breakoutGame.createBoundary(breakoutGameView)
+        breakoutGameView.backgroundColor = UIColor(patternImage: UIImage(named: "cavepaintings.jpg")!)
         
         let ballViewOrigin = CGPoint(x: breakoutGameView.bounds.midX - Constants.Ball.Size.width / 2,
                                      y: breakoutGameView.bounds.maxY - Constants.Ball.BottomOffset - Constants.Ball.Size.height / 2)
