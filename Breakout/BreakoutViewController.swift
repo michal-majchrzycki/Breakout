@@ -140,8 +140,8 @@ class BreakoutViewController: UIViewController, BreakoutGameDelegate {
     }
     
     func winGame() {
-        let alert = UIAlertController(title: "Victory :)", message: "No more bricks left to hit!", preferredStyle: UIAlertControllerStyle.Alert)
-        let newGameAction = UIAlertAction(title: "New Game", style: UIAlertActionStyle.Cancel) {
+        let alert = UIAlertController(title: "YOU HAVE WIN", message: "You can restart game", preferredStyle: UIAlertControllerStyle.Alert)
+        let newGameAction = UIAlertAction(title: "Reset Game", style: UIAlertActionStyle.Cancel) {
             (action: UIAlertAction!) -> Void in
             self.startGame()
         }
@@ -151,14 +151,14 @@ class BreakoutViewController: UIViewController, BreakoutGameDelegate {
     }
     
     func endGame() {
-        let alert = UIAlertController(title: "Game Over :(", message: "The ball fell through the bottom of the screen!", preferredStyle: UIAlertControllerStyle.Alert)
-        let newGameAction = UIAlertAction(title: "New Game", style: UIAlertActionStyle.Cancel) {
+        let alert = UIAlertController(title: "GAME IS OVER", message: "You can play or reset game", preferredStyle: UIAlertControllerStyle.Alert)
+        let newGameAction = UIAlertAction(title: "Reset Game", style: UIAlertActionStyle.Cancel) {
             (action: UIAlertAction!) -> Void in
             self.startGame()
         }
         alert.addAction(newGameAction)
         if AppDelegate.Settings.Game.ContinueAfterGameOver == true {
-            let continueAction = UIAlertAction(title: "Continue", style: UIAlertActionStyle.Default) {
+            let continueAction = UIAlertAction(title: "Play", style: UIAlertActionStyle.Default) {
                 (action: UIAlertAction!) -> Void in
                 self.breakoutGame.resumeGame()
             }
