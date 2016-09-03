@@ -16,26 +16,22 @@ class BreakoutViewController: UIViewController, BreakoutGameDelegate {
         return lazyBreakoutAnimator
     }()
     
-    private var ballView: UIView? = nil
+    private var ballView: UIImageView? = nil
     
-    private var paddleView: UIView? = nil
+    private var paddleView: UIImageView? = nil
     
-    private var brickViews: [[UIView]] = [[]]
+    private var brickViews: [[UIImageView]] = [[]]
     
     private struct Constants {
         struct Ball {
             static var Size: CGSize { return CGSize(width: AppDelegate.Settings.Ball.Size, height: AppDelegate.Settings.Ball.Size) }
             static var StartSpreadAngle: CGFloat { return AppDelegate.Settings.Ball.StartSpreadAngle }
             static let BackgroundColor = UIColor.clearColor()
-            static let BorderColor = UIColor.blackColor()
-            static let BorderWidth = CGFloat(1.0)
+            static let BorderWidth = CGFloat(0.0)
             static let BottomOffset = CGFloat(40.0)
         }
         struct Paddle {
             static let Size = CGSize(width: 100.0, height: 10.0)
-            static let BackgroundColor = UIColor.blackColor()
-            static let BorderColor = UIColor.orangeColor()
-            static let BorderWidth = CGFloat(1.0)
             static let BottomOffset = CGFloat(15.0)
         }
         struct Brick {
@@ -43,9 +39,6 @@ class BreakoutViewController: UIViewController, BreakoutGameDelegate {
             static var Columns: Int { return AppDelegate.Settings.Brick.Columns }
             static let Gap = CGFloat(10.0)
             static let Height = CGFloat(30.0)
-            static let BackgroundColor = UIColor.orangeColor()
-            static let BorderColor = UIColor.blackColor()
-            static let BorderWidth = CGFloat(1.0)
             static let TopOffset = CGFloat(100.0)
         }
     }
@@ -109,9 +102,9 @@ class BreakoutViewController: UIViewController, BreakoutGameDelegate {
         
         let ballViewOrigin = CGPoint(x: breakoutGameView.bounds.midX - Constants.Ball.Size.width / 2,
                                      y: breakoutGameView.bounds.maxY - Constants.Ball.BottomOffset - Constants.Ball.Size.height / 2)
-        ballView = UIView(frame: CGRect(origin: ballViewOrigin, size: Constants.Ball.Size))
+        ballView = UIImageView(frame: CGRect(origin: ballViewOrigin, size: Constants.Ball.Size))
         ballView!.layer.backgroundColor = Constants.Ball.BackgroundColor.CGColor
-        ballView!.layer.borderColor = Constants.Ball.BorderColor.CGColor
+        ballView!.image = UIImage(named: "stone")
         ballView!.layer.borderWidth = Constants.Ball.BorderWidth
         ballView!.layer.cornerRadius = Constants.Ball.Size.height / 2.0
         ballView!.type = BreakoutViewType.Ball
@@ -119,11 +112,9 @@ class BreakoutViewController: UIViewController, BreakoutGameDelegate {
         
         let paddleViewOrigin = CGPoint(x: breakoutGameView.bounds.midX - Constants.Paddle.Size.width / 2,
                                        y: breakoutGameView.bounds.maxY - Constants.Paddle.BottomOffset)
-        paddleView = UIView(frame: CGRect(origin: paddleViewOrigin, size: Constants.Paddle.Size))
-        paddleView!.layer.backgroundColor = Constants.Paddle.BackgroundColor.CGColor
-        paddleView!.layer.borderColor = Constants.Paddle.BorderColor.CGColor
-        paddleView!.layer.borderWidth = Constants.Paddle.BorderWidth
+        paddleView = UIImageView(frame: CGRect(origin: paddleViewOrigin, size: Constants.Paddle.Size))
         paddleView!.layer.cornerRadius = Constants.Paddle.Size.height / 2
+        paddleView!.image = UIImage(named: "paddle")
         paddleView!.type = BreakoutViewType.Paddle
         breakoutGame.addView(paddleView!)
         
@@ -132,16 +123,14 @@ class BreakoutViewController: UIViewController, BreakoutGameDelegate {
                                    height: Constants.Brick.Height)
         brickViews.reserveCapacity(Constants.Brick.Rows)
         for row in 0 ..< Constants.Brick.Rows {
-            var bricksColumn: [UIView] = []
+            var bricksColumn: [UIImageView] = []
             bricksColumn.reserveCapacity(Constants.Brick.Columns)
             for column in 0 ..< Constants.Brick.Columns {
                 let brickViewOrigin = CGPoint(x: Constants.Brick.Gap + (brickViewSize.width + Constants.Brick.Gap) * CGFloat(column),
                                               y:  Constants.Brick.TopOffset + (brickViewSize.height + Constants.Brick.Gap) * CGFloat(row))
-                let brickView = UIView(frame: CGRect(origin: brickViewOrigin, size: brickViewSize))
-                brickView.layer.backgroundColor = Constants.Brick.BackgroundColor.CGColor
-                brickView.layer.borderColor = Constants.Brick.BorderColor.CGColor
-                brickView.layer.borderWidth = Constants.Brick.BorderWidth
+                let brickView = UIImageView(frame: CGRect(origin: brickViewOrigin, size: brickViewSize))
                 brickView.layer.cornerRadius = Constants.Brick.Height / 4.0
+                brickView.image = UIImage(named: "rock-brick")
                 brickView.type = BreakoutViewType.Brick
                 bricksColumn.insert(brickView, atIndex: column)
                 breakoutGame.addView(brickView)
