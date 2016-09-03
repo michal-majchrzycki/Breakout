@@ -8,32 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		908D052D1D64FA9800BAFF47 /* cavepaintings.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 908D052C1D64FA9800BAFF47 /* cavepaintings.jpg */; };
-		908D05321D64FF8E00BAFF47 /* Paddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D05311D64FF8E00BAFF47 /* Paddle.swift */; };
-		908D05341D65051C00BAFF47 /* Brick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D05331D65051C00BAFF47 /* Brick.swift */; };
 		908D053C1D68C05500BAFF47 /* BrekoutPhysics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D053B1D68C05500BAFF47 /* BrekoutPhysics.swift */; };
-		909325121D72473E0047A511 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909325111D72473E0047A511 /* UserSettings.swift */; };
 		909325161D7247FD0047A511 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909325151D7247FC0047A511 /* SettingsTableViewController.swift */; };
-		909325181D73094A0047A511 /* BrickSpecialPower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909325171D73094A0047A511 /* BrickSpecialPower.swift */; };
-		90A3E4A91D6E31FF00340AE6 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A3E4A81D6E31FF00340AE6 /* Ball.swift */; };
 		90DDB42C1D63BC3400D04134 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DDB42B1D63BC3400D04134 /* AppDelegate.swift */; };
 		90DDB42E1D63BC3400D04134 /* BreakoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DDB42D1D63BC3400D04134 /* BreakoutViewController.swift */; };
 		90DDB4311D63BC3400D04134 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90DDB42F1D63BC3400D04134 /* Main.storyboard */; };
 		90DDB4331D63BC3400D04134 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90DDB4321D63BC3400D04134 /* Assets.xcassets */; };
 		90DDB4361D63BC3400D04134 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90DDB4341D63BC3400D04134 /* LaunchScreen.storyboard */; };
+		90E6B9061D7AEDEF00AE50AC /* winner.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90E6B8FF1D7AEDEF00AE50AC /* winner.jpg */; };
+		90E6B9071D7AEDEF00AE50AC /* game-over.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90E6B9001D7AEDEF00AE50AC /* game-over.jpg */; };
+		90E6B9081D7AEDEF00AE50AC /* mammoth.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E6B9011D7AEDEF00AE50AC /* mammoth.png */; };
+		90E6B9091D7AEDEF00AE50AC /* stone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E6B9021D7AEDEF00AE50AC /* stone.png */; };
 		90F525781D74E07A00AF5789 /* Settings-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 90F525761D74E07A00AF5789 /* Settings-50.png */; };
 		90F525791D74E07A00AF5789 /* Stones-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 90F525771D74E07A00AF5789 /* Stones-50.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		908D052C1D64FA9800BAFF47 /* cavepaintings.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cavepaintings.jpg; sourceTree = "<group>"; };
-		908D05311D64FF8E00BAFF47 /* Paddle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paddle.swift; sourceTree = "<group>"; };
-		908D05331D65051C00BAFF47 /* Brick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brick.swift; sourceTree = "<group>"; };
 		908D053B1D68C05500BAFF47 /* BrekoutPhysics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrekoutPhysics.swift; sourceTree = "<group>"; };
-		909325111D72473E0047A511 /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		909325151D7247FC0047A511 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
-		909325171D73094A0047A511 /* BrickSpecialPower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrickSpecialPower.swift; sourceTree = "<group>"; };
-		909325191D7312770047A511 /* UIDynamicAnimatorBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIDynamicAnimatorBridgingHeader.h; sourceTree = "<group>"; };
-		90A3E4A81D6E31FF00340AE6 /* Ball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
 		90DDB4281D63BC3300D04134 /* PrehistoricBreakout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrehistoricBreakout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90DDB42B1D63BC3400D04134 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90DDB42D1D63BC3400D04134 /* BreakoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakoutViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +34,10 @@
 		90DDB4321D63BC3400D04134 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90DDB4351D63BC3400D04134 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		90DDB4371D63BC3400D04134 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90E6B8FF1D7AEDEF00AE50AC /* winner.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = winner.jpg; sourceTree = "<group>"; };
+		90E6B9001D7AEDEF00AE50AC /* game-over.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "game-over.jpg"; sourceTree = "<group>"; };
+		90E6B9011D7AEDEF00AE50AC /* mammoth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mammoth.png; sourceTree = "<group>"; };
+		90E6B9021D7AEDEF00AE50AC /* stone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stone.png; sourceTree = "<group>"; };
 		90F525761D74E07A00AF5789 /* Settings-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings-50.png"; sourceTree = "<group>"; };
 		90F525771D74E07A00AF5789 /* Stones-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stones-50.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,6 +59,10 @@
 				908D052C1D64FA9800BAFF47 /* cavepaintings.jpg */,
 				90F525761D74E07A00AF5789 /* Settings-50.png */,
 				90F525771D74E07A00AF5789 /* Stones-50.png */,
+				90E6B8FF1D7AEDEF00AE50AC /* winner.jpg */,
+				90E6B9001D7AEDEF00AE50AC /* game-over.jpg */,
+				90E6B9011D7AEDEF00AE50AC /* mammoth.png */,
+				90E6B9021D7AEDEF00AE50AC /* stone.png */,
 			);
 			name = Images;
 			path = Breakout/Images;
@@ -70,7 +71,6 @@
 		908D052B1D64FA7200BAFF47 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				909325191D7312770047A511 /* UIDynamicAnimatorBridgingHeader.h */,
 				90DDB42B1D63BC3400D04134 /* AppDelegate.swift */,
 				90DDB4321D63BC3400D04134 /* Assets.xcassets */,
 				90DDB4341D63BC3400D04134 /* LaunchScreen.storyboard */,
@@ -79,22 +79,10 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		908D052E1D64FE9200BAFF47 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				908D05311D64FF8E00BAFF47 /* Paddle.swift */,
-				908D05331D65051C00BAFF47 /* Brick.swift */,
-				90A3E4A81D6E31FF00340AE6 /* Ball.swift */,
-				909325171D73094A0047A511 /* BrickSpecialPower.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		908D053D1D68CF5600BAFF47 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				908D053B1D68C05500BAFF47 /* BrekoutPhysics.swift */,
-				909325111D72473E0047A511 /* UserSettings.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -120,7 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				908D053D1D68CF5600BAFF47 /* Model */,
-				908D052E1D64FE9200BAFF47 /* Views */,
 				90DDB42D1D63BC3400D04134 /* BreakoutViewController.swift */,
 				909325151D7247FC0047A511 /* SettingsTableViewController.swift */,
 				90DDB42F1D63BC3400D04134 /* Main.storyboard */,
@@ -188,11 +175,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				908D052D1D64FA9800BAFF47 /* cavepaintings.jpg in Resources */,
+				90E6B9061D7AEDEF00AE50AC /* winner.jpg in Resources */,
 				90DDB4361D63BC3400D04134 /* LaunchScreen.storyboard in Resources */,
 				90F525791D74E07A00AF5789 /* Stones-50.png in Resources */,
 				90DDB4331D63BC3400D04134 /* Assets.xcassets in Resources */,
+				90E6B9081D7AEDEF00AE50AC /* mammoth.png in Resources */,
 				90F525781D74E07A00AF5789 /* Settings-50.png in Resources */,
+				90E6B9091D7AEDEF00AE50AC /* stone.png in Resources */,
 				90DDB4311D63BC3400D04134 /* Main.storyboard in Resources */,
+				90E6B9071D7AEDEF00AE50AC /* game-over.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,12 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90A3E4A91D6E31FF00340AE6 /* Ball.swift in Sources */,
-				908D05321D64FF8E00BAFF47 /* Paddle.swift in Sources */,
-				909325181D73094A0047A511 /* BrickSpecialPower.swift in Sources */,
-				908D05341D65051C00BAFF47 /* Brick.swift in Sources */,
 				90DDB42E1D63BC3400D04134 /* BreakoutViewController.swift in Sources */,
-				909325121D72473E0047A511 /* UserSettings.swift in Sources */,
 				90DDB42C1D63BC3400D04134 /* AppDelegate.swift in Sources */,
 				908D053C1D68C05500BAFF47 /* BrekoutPhysics.swift in Sources */,
 				909325161D7247FD0047A511 /* SettingsTableViewController.swift in Sources */,
