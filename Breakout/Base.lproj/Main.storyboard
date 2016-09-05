@@ -1,74 +1,349 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sjn-e3-RaO">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Tab Bar Controller-->
+        <scene sceneID="WhZ-OL-eeD">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PrehistoricBreakout" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="sjn-e3-RaO" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="fHZ-LA-ZbP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="yjU-Q4-cx2" kind="relationship" relationship="viewControllers" id="NvQ-fJ-meu"/>
+                        <segue destination="MBA-oO-jMC" kind="relationship" relationship="viewControllers" id="eZ5-tQ-nAE"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d6Z-AR-pY0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="368" y="655"/>
+        </scene>
+        <!--Game-->
+        <scene sceneID="VPi-7m-g1m">
+            <objects>
+                <viewController id="yjU-Q4-cx2" customClass="BreakoutViewController" customModule="PrehistoricBreakout" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="89w-48-dC4"/>
+                        <viewControllerLayoutGuide type="bottom" id="J7M-MT-FlL"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="Ezc-XS-2tN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0sK-33-BTk" userLabel="GameView">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cavepaintings.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="cvX-b2-Z1R">
-                                        <rect key="frame" x="0.0" y="0.0" width="1162" height="1481"/>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="0.23455975506756757" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="cvX-b2-Z1R" firstAttribute="top" secondItem="0sK-33-BTk" secondAttribute="top" id="88R-x1-94E"/>
-                                    <constraint firstItem="cvX-b2-Z1R" firstAttribute="leading" secondItem="0sK-33-BTk" secondAttribute="leading" id="c0B-Nm-Yvs"/>
-                                </constraints>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oqn-5Q-LFi" userLabel="Breakout Game View">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="QtF-5h-Wm5" appends="YES" id="dcL-3b-VzK"/>
+                                    <outletCollection property="gestureRecognizers" destination="Pd5-oc-Qrv" appends="YES" id="PHM-PQ-54Q"/>
+                                </connections>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CH6-Z3-LlO">
-                                <rect key="frame" x="195" y="270" width="210" height="60"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sjt-g6-5hv">
-                                        <rect key="frame" x="0.0" y="0.0" width="210" height="60"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                        <state key="normal" title="Start Game!">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.7919130067567568" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="LetsStartGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UbR-dl-2Dd"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0sK-33-BTk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8zh-Lo-pAh"/>
-                            <constraint firstItem="0sK-33-BTk" firstAttribute="centerY" secondItem="CH6-Z3-LlO" secondAttribute="centerY" id="ESi-aJ-vXo"/>
-                            <constraint firstItem="0sK-33-BTk" firstAttribute="centerX" secondItem="CH6-Z3-LlO" secondAttribute="centerX" id="Hxe-8z-wQn"/>
-                            <constraint firstItem="0sK-33-BTk" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="OZa-kY-eEf"/>
-                            <constraint firstItem="CH6-Z3-LlO" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="q7t-KC-Ahn"/>
-                            <constraint firstItem="CH6-Z3-LlO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="t0U-eR-4Lr"/>
+                            <constraint firstAttribute="trailing" secondItem="oqn-5Q-LFi" secondAttribute="trailing" id="Rx6-Ks-DQO"/>
+                            <constraint firstItem="oqn-5Q-LFi" firstAttribute="leading" secondItem="Ezc-XS-2tN" secondAttribute="leading" id="kdF-2F-Qbu"/>
+                            <constraint firstItem="oqn-5Q-LFi" firstAttribute="top" secondItem="Ezc-XS-2tN" secondAttribute="top" id="q4D-oB-HGg"/>
+                            <constraint firstItem="oqn-5Q-LFi" firstAttribute="bottom" secondItem="J7M-MT-FlL" secondAttribute="top" id="w4X-XF-yCQ"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Game" image="Stones-50.png" id="Hum-xn-wsC"/>
                     <connections>
-                        <outlet property="gameView" destination="0sK-33-BTk" id="KFM-5H-e78"/>
-                        <outlet property="startGameButton" destination="Sjt-g6-5hv" id="2sl-31-mQD"/>
+                        <outlet property="breakoutGameView" destination="oqn-5Q-LFi" id="UFz-AK-3WT"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zwG-8U-s5a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="QtF-5h-Wm5">
+                    <connections>
+                        <action selector="pushBall:" destination="yjU-Q4-cx2" id="hMO-CC-aOq"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Pd5-oc-Qrv">
+                    <connections>
+                        <action selector="pushPaddle:" destination="yjU-Q4-cx2" id="B6t-ro-Pl1"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="378" y="339"/>
+            <point key="canvasLocation" x="1155" y="460"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="DJj-cH-mKy">
+            <objects>
+                <tableViewController id="MBA-oO-jMC" customClass="SettingsTableViewController" customModule="PrehistoricBreakout" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Y6s-Ur-rGk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <sections>
+                            <tableViewSection headerTitle="Brick" id="XGt-tw-5gV">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="4Mz-wI-Zvf">
+                                        <rect key="frame" x="0.0" y="50" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Mz-wI-Zvf" id="pG8-TS-90M">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many Rows?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIi-Ja-Wgf">
+                                                    <rect key="frame" x="8" y="11" width="173" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="173" id="udp-O2-pJR"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <size key="shadowOffset" width="1" height="1"/>
+                                                </label>
+                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="IML-Ux-hBg">
+                                                    <rect key="frame" x="498" y="7" width="94" height="29"/>
+                                                    <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <connections>
+                                                        <action selector="howManyRows:" destination="MBA-oO-jMC" eventType="valueChanged" id="JBh-Wu-THd"/>
+                                                    </connections>
+                                                </stepper>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="3" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PyZ-qq-rzX">
+                                                    <rect key="frame" x="448" y="11" width="42" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="42" id="jH5-zF-Hq2"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="IML-Ux-hBg" firstAttribute="leading" secondItem="PyZ-qq-rzX" secondAttribute="trailing" constant="8" symbolic="YES" id="4br-rY-CcN"/>
+                                                <constraint firstItem="hIi-Ja-Wgf" firstAttribute="leading" secondItem="pG8-TS-90M" secondAttribute="leadingMargin" id="8lo-eB-xDv"/>
+                                                <constraint firstItem="hIi-Ja-Wgf" firstAttribute="baseline" secondItem="PyZ-qq-rzX" secondAttribute="baseline" id="GeN-1p-4dy"/>
+                                                <constraint firstItem="PyZ-qq-rzX" firstAttribute="centerY" secondItem="IML-Ux-hBg" secondAttribute="centerY" id="LBv-Im-zyN"/>
+                                                <constraint firstItem="hIi-Ja-Wgf" firstAttribute="firstBaseline" secondItem="PyZ-qq-rzX" secondAttribute="firstBaseline" id="NWc-hk-WUa"/>
+                                                <constraint firstItem="IML-Ux-hBg" firstAttribute="trailing" secondItem="pG8-TS-90M" secondAttribute="trailingMargin" id="ZEV-Gh-0wx"/>
+                                                <constraint firstItem="hIi-Ja-Wgf" firstAttribute="centerY" secondItem="pG8-TS-90M" secondAttribute="centerY" id="oMD-tI-Q6m"/>
+                                                <constraint firstItem="hIi-Ja-Wgf" firstAttribute="top" secondItem="pG8-TS-90M" secondAttribute="topMargin" constant="3" id="sSZ-tQ-tYg"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="JWu-48-ANc">
+                                        <rect key="frame" x="0.0" y="94" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JWu-48-ANc" id="fiJ-Dc-ASC">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many Columns?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9H-Ss-gA9">
+                                                    <rect key="frame" x="8" y="11" width="232" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="232" id="lz9-Of-c4g"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="kKx-XH-aME">
+                                                    <rect key="frame" x="498" y="7" width="94" height="29"/>
+                                                    <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <connections>
+                                                        <action selector="howManyColumns:" destination="MBA-oO-jMC" eventType="valueChanged" id="hr6-ah-lPU"/>
+                                                    </connections>
+                                                </stepper>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1B5-sY-mkH">
+                                                    <rect key="frame" x="448" y="11" width="42" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="42" id="Hd0-Nq-fIp"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="n9H-Ss-gA9" firstAttribute="baseline" secondItem="1B5-sY-mkH" secondAttribute="baseline" id="CfG-Ui-Id4"/>
+                                                <constraint firstItem="1B5-sY-mkH" firstAttribute="centerY" secondItem="kKx-XH-aME" secondAttribute="centerY" id="EPY-Ae-1UI"/>
+                                                <constraint firstItem="n9H-Ss-gA9" firstAttribute="leading" secondItem="fiJ-Dc-ASC" secondAttribute="leadingMargin" id="YaF-D1-6aN"/>
+                                                <constraint firstItem="kKx-XH-aME" firstAttribute="leading" secondItem="1B5-sY-mkH" secondAttribute="trailing" constant="8" symbolic="YES" id="cWY-ew-XAn"/>
+                                                <constraint firstItem="n9H-Ss-gA9" firstAttribute="centerY" secondItem="fiJ-Dc-ASC" secondAttribute="centerY" id="cgw-Iq-9iS"/>
+                                                <constraint firstItem="kKx-XH-aME" firstAttribute="trailing" secondItem="fiJ-Dc-ASC" secondAttribute="trailingMargin" id="ffX-rg-wZX"/>
+                                                <constraint firstItem="n9H-Ss-gA9" firstAttribute="top" secondItem="fiJ-Dc-ASC" secondAttribute="topMargin" constant="3" id="uVY-ks-2Z2"/>
+                                                <constraint firstItem="n9H-Ss-gA9" firstAttribute="firstBaseline" secondItem="1B5-sY-mkH" secondAttribute="firstBaseline" id="zie-wo-Ogh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Ball" id="UqR-L5-sxu">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Cw4-2m-TVr">
+                                        <rect key="frame" x="0.0" y="189" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cw4-2m-TVr" id="2Qj-Kv-x4Y">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ball Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJK-vr-ek3">
+                                                    <rect key="frame" x="8" y="11" width="107" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="107" id="xiC-y5-wBT"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GbP-CF-dfg">
+                                                    <rect key="frame" x="417" y="7" width="175" height="29"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="175" id="Zbb-9b-5hG"/>
+                                                    </constraints>
+                                                    <segments>
+                                                        <segment title="First"/>
+                                                        <segment title="Second"/>
+                                                        <segment title="Third"/>
+                                                    </segments>
+                                                    <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <connections>
+                                                        <action selector="ballSize:" destination="MBA-oO-jMC" eventType="valueChanged" id="5iW-Jx-U1w"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="SJK-vr-ek3" firstAttribute="leading" secondItem="2Qj-Kv-x4Y" secondAttribute="leadingMargin" id="3cJ-Af-lWD"/>
+                                                <constraint firstItem="SJK-vr-ek3" firstAttribute="centerY" secondItem="GbP-CF-dfg" secondAttribute="centerY" id="Cat-0r-xnV"/>
+                                                <constraint firstItem="GbP-CF-dfg" firstAttribute="trailing" secondItem="2Qj-Kv-x4Y" secondAttribute="trailingMargin" id="DzG-Nm-p3D"/>
+                                                <constraint firstItem="GbP-CF-dfg" firstAttribute="centerY" secondItem="2Qj-Kv-x4Y" secondAttribute="centerY" id="YqA-4h-pCL"/>
+                                                <constraint firstItem="SJK-vr-ek3" firstAttribute="top" secondItem="2Qj-Kv-x4Y" secondAttribute="topMargin" constant="3" id="wvm-Ob-Scm"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="w4u-8m-A40">
+                                        <rect key="frame" x="0.0" y="233" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w4u-8m-A40" id="hPd-2i-gtc">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ball Angle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="luD-Lv-9iZ">
+                                                    <rect key="frame" x="8" y="11" width="130" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="130" id="0pr-WN-sj9"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="6Ri-nN-VEe">
+                                                    <rect key="frame" x="416" y="7" width="178" height="31"/>
+                                                    <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="174" id="eMr-xW-1Vq"/>
+                                                    </constraints>
+                                                    <color key="minimumTrackTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="thumbTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <connections>
+                                                        <action selector="ballAngle:" destination="MBA-oO-jMC" eventType="valueChanged" id="8Er-Vn-lH7"/>
+                                                    </connections>
+                                                </slider>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="6Ri-nN-VEe" firstAttribute="trailing" secondItem="hPd-2i-gtc" secondAttribute="trailingMargin" id="5Yw-nb-bD7"/>
+                                                <constraint firstItem="luD-Lv-9iZ" firstAttribute="centerY" secondItem="hPd-2i-gtc" secondAttribute="centerY" id="L5o-IW-cDO"/>
+                                                <constraint firstItem="luD-Lv-9iZ" firstAttribute="leading" secondItem="hPd-2i-gtc" secondAttribute="leadingMargin" id="i7W-KB-GFI"/>
+                                                <constraint firstItem="luD-Lv-9iZ" firstAttribute="top" secondItem="hPd-2i-gtc" secondAttribute="topMargin" constant="3" id="lnH-nu-4vH"/>
+                                                <constraint firstItem="luD-Lv-9iZ" firstAttribute="centerY" secondItem="6Ri-nN-VEe" secondAttribute="centerY" id="nZf-sO-nEF"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="me7-ZI-FVa">
+                                        <rect key="frame" x="0.0" y="277" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="me7-ZI-FVa" id="PSc-2F-ZZi">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Gameplay" id="lu1-yJ-rH7">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qZm-5S-Z1R">
+                                        <rect key="frame" x="0.0" y="372" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qZm-5S-Z1R" id="tHx-Hd-Oo0">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play After Finished?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQP-xB-WQG">
+                                                    <rect key="frame" x="8" y="11" width="236" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="236" id="AmU-rv-owR"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g3s-kS-csc">
+                                                    <rect key="frame" x="543" y="6" width="51" height="31"/>
+                                                    <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="onTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="thumbTintColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <connections>
+                                                        <action selector="playAfterFinished:" destination="MBA-oO-jMC" eventType="valueChanged" id="hSs-ip-fQo"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="iQP-xB-WQG" firstAttribute="centerY" secondItem="tHx-Hd-Oo0" secondAttribute="centerY" id="0ac-6N-Ola"/>
+                                                <constraint firstItem="iQP-xB-WQG" firstAttribute="top" secondItem="tHx-Hd-Oo0" secondAttribute="topMargin" constant="3" id="2fQ-HC-bA9"/>
+                                                <constraint firstItem="iQP-xB-WQG" firstAttribute="centerY" secondItem="g3s-kS-csc" secondAttribute="centerY" id="AD6-kZ-6pQ"/>
+                                                <constraint firstItem="iQP-xB-WQG" firstAttribute="leading" secondItem="tHx-Hd-Oo0" secondAttribute="leadingMargin" id="NoS-NE-e22"/>
+                                                <constraint firstItem="g3s-kS-csc" firstAttribute="trailing" secondItem="tHx-Hd-Oo0" secondAttribute="trailingMargin" id="jYx-YC-2le"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="MBA-oO-jMC" id="SW8-7C-z55"/>
+                            <outlet property="delegate" destination="MBA-oO-jMC" id="D5o-Ag-IPZ"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Settings" image="Settings-50.png" id="DOf-Mv-Ynj"/>
+                    <connections>
+                        <outlet property="ballAngle" destination="6Ri-nN-VEe" id="JXs-q4-ljV"/>
+                        <outlet property="ballSize" destination="GbP-CF-dfg" id="pf2-aN-JX5"/>
+                        <outlet property="howManyColumns" destination="kKx-XH-aME" id="KAM-lq-VJF"/>
+                        <outlet property="howManyColumnsLabel" destination="1B5-sY-mkH" id="dsd-Nu-1Iz"/>
+                        <outlet property="howManyRows" destination="IML-Ux-hBg" id="hyN-U4-nR4"/>
+                        <outlet property="howManyRowsLabel" destination="PyZ-qq-rzX" id="8rL-WO-T6t"/>
+                        <outlet property="playAfterFinished" destination="g3s-kS-csc" id="J0C-Qb-7ZZ"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="APV-vT-OEu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1155" y="1117"/>
         </scene>
     </scenes>
     <resources>
-        <image name="cavepaintings.jpg" width="1162" height="1481"/>
+        <image name="Settings-50.png" width="40" height="40"/>
+        <image name="Stones-50.png" width="40" height="40"/>
     </resources>
 </document>
